@@ -1,6 +1,6 @@
 'use strict';
 
-var element = document.getElementById('text');
+var element = document.getElementById('Heading');
 var dir =  document.getElementById("dir");
 element.style.color = "orange";
 
@@ -15,11 +15,14 @@ Leap.loop({enableGestures: true}, function(frame){
                     //element.style.color = color[i];
                     if(i<4){i++} else {i=0}
                     element.innerHTML = "Sie haben einen Kreis gezeichnet.";
+                    //moveSlide("prev", 0);
                     break;
                 case "swipe":
+                    console.log("entered swipe");
                     element.style.color = color[i];
                     if(i<4){i++} else {i=0}
                     element.innerHTML = "Sie haben eine Wischgeste vollführt!";
+                    $.fn.fullpage.slideArrowHandler()
                     break;
             }
         });
