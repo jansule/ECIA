@@ -2,29 +2,33 @@
 
 var element = document.getElementById('text');
 var dir =  document.getElementById("dir");
-element.style.color = "orange";
+element.style.color = "red";
 
-var color = ["red", "green", "blue", "orange"];
+//var color = ["red", "green", "blue", "orange"];
 var i = 0;
 
+var waitMode = false; 
+
 Leap.loop({enableGestures: true}, function(frame){
-    if(frame.valid && frame.gestures.length > 0){
-        frame.gestures.forEach(function(gesture){
-            switch (gesture.type){
-                case "circle":
-                    //element.style.color = color[i];
-                    if(i<4){i++} else {i=0}
-                    element.innerHTML = "Sie haben einen Kreis gezeichnet.";
-                    break;
-                case "swipe":
-                    element.style.color = color[i];
-                    if(i<4){i++} else {i=0}
-                    element.innerHTML = "Sie haben eine Wischgeste vollführt!";
-                    break;
-            }
-        });
+    if(!waitMode && frame.valid && frame.hands.length > 0){
+				
+			var numberOfFingers = getExtendedFingers(frame.hands[0]);
+			element.innerHTML = "You've shown " + numberOfFingers + " fingers.";	
+			waitMode = true; 
+			setTimeout(function(){ waitMode = false; }, 900); // need timeout for not recognising fingers again directly
+			
     }
 });
+
+function getExtendedFingers(hand){
+   var exfingers = 0;
+   for(var i=0;i<hand.fingers.length;i++){
+      if(hand.fingers[i].extended){
+         exfingers++;
+      }
+   }
+   return exfingers;
+}
 
 
 Leap.loop({enablesGestures: true}, function frame(frame) {
