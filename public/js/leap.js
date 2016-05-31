@@ -15,7 +15,7 @@ $( document ).ready(function() {
 			console.log("fingers: " + numberOfFingers);
 			
 			var destination = numberOfFingers-1;
-			if(destination > -1){
+			if(destination > -1 && destination < 5){
 				$.fn.fullpage.silentMoveTo(0, destination);	
 			}
 			
