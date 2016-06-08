@@ -50,6 +50,12 @@ $(document).ready(function(){
 							ownTracks.push(tracks[i]);
 						}
 						tracks.splice(0, 11);
+						$('#stats').text(JSON.stringify(stats));
+						$('#current').text(JSON.stringify(currentTrack));
+						$('#sameCar').text(JSON.stringify(sameCar));
+						$('#own').text(JSON.stringify(ownTracks));
+
+
 						for(index in currentTrack.features){
 							(function(ind){
 								setTimeout(function(){
@@ -64,7 +70,7 @@ $(document).ready(function(){
 									##############################################################
 									*
 									*/
-									console.log('Coordinates: ' + currentTrack.features[ind].geometry.coordinates[0] + ' ' + currentTrack.features[ind].geometry.coordinates[1]);
+									//console.log('Coordinates: ' + currentTrack.features[ind].geometry.coordinates[0] + ' ' + currentTrack.features[ind].geometry.coordinates[1]);
 								}, 5000 * ind);
 							})(index);
 						}
