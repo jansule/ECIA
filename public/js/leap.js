@@ -2,7 +2,7 @@
 
 var element = document.getElementById('text');
 var dir =  document.getElementById("dir");
-element.style.color = "red";
+//element.style.color = "red";
 var waitMode = false; 
 
 $( document ).ready(function() {

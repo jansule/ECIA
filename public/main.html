@@ -4,14 +4,14 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="stylesheet" type="text/css" href="css/style.css" />	
 	<link rel="stylesheet" type="text/css" href="lib/fullpage/jquery.fullpage.css" />
-	<link rel="stylesheet" type="text/css" href="css/rickshaw.min.css"/>
+	<link rel="stylesheet" type="text/css" href="lib/rickshaw/rickshaw.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/flipclock/flipclock.css"/>
 	
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/fullpage/jquery.fullpage.js"></script>
 	<script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
 	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
-	<script type="text/javascript" src="js/rickshaw.min.js"></script>
+	<script type="text/javascript" src="lib/rickshaw/rickshaw.min.js"></script>
 	<script type="text/javascript" src="lib/flipclock/flipclock.min.js"></script>
 	
 	<!--TODO: seperate into extra file if project gets bigger -->
@@ -35,13 +35,13 @@
 					<!-- demo text -->
 					<p style="font-size: 40px; margin-left: 30%;">First slide:
 					<br>Current dashboard</p>
-					<label for="FP_speed" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Current speed: </label>
-					<div id="FP_speed" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="FP_cons" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Fuel consumption: </label>
-					<div id="FP_cons" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="FP_co2" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Current carbon-emmission: </label>
-					<div id="FP_co2" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="FP_dur" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Duration of driving: </label>
+					<label for="FP_speed" >Speed: </label>
+					<h1 id="FP_speed"></h1>
+					<label for="FP_cons" >Consumption: </label>
+					<h1 id="FP_cons"></h1>
+					<label for="FP_co2" >CO2: </label>
+					<h1 id="FP_co2"></h1>
+					<label for="FP_dur" >Duration of driving: </label>
 					<div id="FP_dur" class="clock" style="margin-left: 20%;"></div>
 				</div>
 			</div>
@@ -50,13 +50,13 @@
 				
 					<!-- demo text -->
 					<p style="font-size: 40px; margin-left: 30%;">Second slide:
-					<br>Current data VS. yours average
+					<br>Current data VS. your average
 				    </p>
-					<label for="SP_speed" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Current speed vs. AVG: </label>
+					<label for="SP_speed" >Current speed vs. AVG: </label>
 					<div id="SP_speed" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="SP_cons" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Fuel consumption vs. AVG: </label>
+					<label for="SP_cons" >Current Consumption vs. AVG: </label>
 					<div id="SP_cons" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="SP_co2" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Current carbon-emmission vs. AVG: </label>
+					<label for="SP_co2" >Current CO2 vs. AVG: </label>
 					<div id="SP_co2" class="rickshaw_graph" style="margin-left: 20%;"></div>
 				</div>
 			</div>
@@ -67,11 +67,11 @@
 					<p style="font-size: 40px; margin-left: 30%;">Third slide:
 					<br>Your data VS. data of the same cartype
 				    </p>
-					<label for="TP_speed" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Speed: </label>
+					<label for="TP_speed" >Speed: </label>
 					<div id="TP_speed" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="TP_cons" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Fuel consumption: </label>
+					<label for="TP_cons" >Consumption: </label>
 					<div id="TP_cons" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="TP_co2" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Carbon-emmissions: </label>
+					<label for="TP_co2" >CO2: </label>
 					<div id="TP_co2" class="rickshaw_graph" style="margin-left: 20%;"></div>
 				</div>
 			</div>	
@@ -82,11 +82,11 @@
 					<p style="font-size: 40px; margin-left: 30%;">Fourth slide:
 					<br>Your current data VS. average users performance
 				    </p>
-					<label for="LP_speed" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Speed: </label>
+					<label for="LP_speed" >Speed (Km/h): </label>
 					<div id="LP_speed" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="LP_cons" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Fuel consumption: </label>
+					<label for="LP_cons" >Consumption (l/h): </label>
 					<div id="LP_cons" class="rickshaw_graph" style="margin-left: 20%;"></div>
-					<label for="LP_co2" style="font-size: 20px; font-family: sans-serif; margin-left: 5%;">Carbon-emmissions: </label>
+					<label for="LP_co2" >CO2 (kg/h): </label>
 					<div id="LP_co2" class="rickshaw_graph" style="margin-left: 20%;"></div>
 				</div>
 			</div>	
@@ -95,6 +95,7 @@
 	</div>
 	<script src="js/leap.js"></script>
 	<script src="js/ajax.js"></script>
+	<script src="js/trackData.js"></script>
 	<script src="js/graphics.js"></script>
 </body>
 </html>
