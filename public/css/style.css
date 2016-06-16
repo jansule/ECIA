@@ -1,8 +1,6 @@
 #section0{
 	background-color: transparent;
-}
-
-.number{
+	margin: 2%;
 }
 
 .content{
@@ -10,14 +8,21 @@
 }
 
 label {
-	font-size: 20px; 
-	font-family: sans-serif; 
-	margin-left: 5%;
+	font-size: 30px; 
+	font-family: sans-serif;
+	margin-left: 10%; 
 }
 
 h1 {
 	font-family: sans-serif;
-	margin-left: 20%;
+	margin-left: 40%;
 	width: 450px;
 	height: 150px;
+	font-size: 40px;
+}
+
+p {
+	font-family: sans-serif;
+	font-size: 40px;
+	margin-left: 30%;
 }

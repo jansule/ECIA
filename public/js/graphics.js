@@ -1,223 +1,236 @@
 "use strict"
 
- var FP_speed = document.getElementById("FP_speed");
- FP_speed.innerHTML = Math.floor(enviro.currentTrack.features[0].properties.phenomenons.Speed.value * 100) / 100 + " KM/H";
-
-console.log(enviro.currentTrack)
+// declare vairables
+var liveData = [];
+var calculatedData = {};
+var FP_speed = document.getElementById("FP_speed");
+var FP_CO2 = document.getElementById("FP_co2");
 var FP_cons = document.getElementById("FP_cons");
-// This value is not given in the JSON from envirocar
-//FP_cons.innerHTML = Math.floor(enviro.currentTrack.features[0].properties.phenomenons.Consumption.value * 100) / 100 + " L/H"
+var SP_speed, SP_speed_y, SP_cons, SP_cons_y, SP_co2, SP_co2_y, TP_speed, TP_speed_y, TP_cons, TP_cons_y, TP_co2, TP_co2_y, LP_speed, LP_speed_y, LP_cons, LP_cons_y, LP_co2, LP_co2_y;
 
-// random data to display
-var FP_co2 = new Rickshaw.Graph( {
-	element: document.getElementById("FP_co2"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
+//update the information in the HUD every 5 sec
+for(var index in enviro.currentTrack.features){
+	(function(ind){
+		setTimeout(function(){
+			
+			liveData.push(enviro.currentTrack.features[ind]);
+			calculatedData = calcLiveAverage(liveData);
+			//##########################################################
+			// Put here code for calculating live stats and display ####
+			//##########################################################
+			FP_speed.innerHTML = Math.floor(liveData[ind].properties.phenomenons.Speed.value * 100) / 100 + " km/h";
+			FP_cons.innerHTML = Math.floor(liveData[ind].properties.phenomenons.Consumption.value * 100) / 100 + " l/h"
+			FP_CO2.innerHTML = Math.floor(liveData[ind].properties.phenomenons.CO2.value * 100) / 100 + " kg/h";
+			document.getElementById('SP_speed').innerHTML = "";
+			SP_speed = new Rickshaw.Graph( {
+				element: document.getElementById("SP_speed"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.Speed.value} ],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.ownTracksStats.statistics[0].avg} ],
+						color: '#708090',
+						name: 'average'
 
-	} ]
-} );
-var FP_co2_y = new Rickshaw.Graph.Axis.Y({graph: FP_co2})
-FP_co2_y.render();
-FP_co2.render();
+				} ]
+			} );
+			SP_speed_y = new Rickshaw.Graph.Axis.Y({graph: SP_speed})
+			SP_speed_y.render();
+			SP_speed.render();
+			
+			document.getElementById('SP_cons').innerHTML = "";
+			SP_cons = new Rickshaw.Graph( {
+				element: document.getElementById("SP_cons"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.Consumption.value} ],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.ownTracksStats.statistics[2].avg} ],
+						color: '#708090',
+						name: 'average'
 
-// Clock, showing the duration of driving
+				} ]
+			} );
+			SP_cons_y = new Rickshaw.Graph.Axis.Y({graph: SP_cons})
+			SP_cons_y.render();
+			SP_cons.render();
+
+			document.getElementById('SP_co2').innerHTML = "";
+			SP_co2 = new Rickshaw.Graph( {
+				element: document.getElementById("SP_co2"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.CO2.value} ],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.ownTracksStats.statistics[1].avg} ],
+						color: '#708090',
+						name: 'average'
+				} ]
+			} );
+			SP_co2_y = new Rickshaw.Graph.Axis.Y({graph: SP_co2})
+			SP_co2_y.render();
+			SP_co2.render();
+			document.getElementById('TP_speed').innerHTML = "";
+			TP_speed = new Rickshaw.Graph( {
+				element: document.getElementById("TP_speed"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: calcLiveAverage(liveData.slice(0, ind + 1)).avgSpeed} ],
+						color: '#0072ff',
+						name: 'avg_track'
+					}, {
+						data: [ { x: 0, y: enviro.sameCarStats.statistics[0].avg} ],
+						color: '#708090',
+						name: 'same_car'
+
+				} ]
+			} );
+			TP_speed_y = new Rickshaw.Graph.Axis.Y({graph: TP_speed})
+			TP_speed.render();
+			TP_speed_y.render();
+			
+			document.getElementById('TP_cons').innerHTML = "";
+			TP_cons = new Rickshaw.Graph( {
+				element: document.getElementById("TP_cons"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack:true,
+				series: [ 
+					{
+						data: [ { x: 0, y: calcLiveAverage(liveData.slice(0, ind + 1)).avgConsumption} ],
+						color: '#0072ff'
+					}, {
+						data: [ { x: 0, y: enviro.sameCarStats.statistics[2].avg} ],
+						color: '#708090'
+
+				} ]
+			} );
+			TP_cons_y = new Rickshaw.Graph.Axis.Y({graph: TP_cons})
+			TP_cons.render();
+			TP_cons_y.render();
+
+			document.getElementById('TP_co2').innerHTML = "";
+			TP_co2 = new Rickshaw.Graph( {
+				element: document.getElementById("TP_co2"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: calcLiveAverage(liveData.slice(0, ind + 1)).avgCo2} ],
+						color: '#0072ff'
+					}, {
+						data: [ { x: 0, y: enviro.sameCarStats.statistics[1].avg} ],
+						color: '#708090'
+
+				} ]
+			} );
+			TP_co2_y = new Rickshaw.Graph.Axis.Y({graph: TP_co2})
+			TP_co2.render();
+			TP_co2_y.render();
+			
+			// average of all users' speed
+			document.getElementById('LP_speed').innerHTML = "";
+			LP_speed = new Rickshaw.Graph( {
+				element: document.getElementById("LP_speed"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.Speed.value}],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.stats.statistics[0].avg}],
+						color: '#708090',
+						name: 'average'
+
+				}
+				]
+			} );
+			LP_speed_y = new Rickshaw.Graph.Axis.Y({graph: LP_speed})
+			LP_speed.render();
+			LP_speed_y.render();
+
+			document.getElementById('LP_cons').innerHTML = "";
+			LP_cons = new Rickshaw.Graph( {
+				element: document.getElementById("LP_cons"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.Consumption.value}],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.stats.statistics[2].avg} ],
+						color: '#708090',
+						name: 'average'
+
+				} ]
+			} );
+			LP_cons_y = new Rickshaw.Graph.Axis.Y({graph: LP_cons})
+			LP_cons.render();
+			LP_cons_y.render();
+
+			document.getElementById('LP_co2').innerHTML = "";
+			LP_co2 = new Rickshaw.Graph( {
+				element: document.getElementById("LP_co2"),
+				width: 450,
+				height: 150,
+				renderer: 'bar',
+				unstack: true,
+				series: [ 
+					{
+						data: [ { x: 0, y: liveData[ind].properties.phenomenons.CO2.value }],
+						color: '#0072ff',
+						name: 'current'
+					}, {
+						data: [ { x: 0, y: enviro.stats.statistics[1].avg} ],
+						color: '#708090',
+						name: 'average'
+
+				} ]
+			} );
+			LP_co2_y = new Rickshaw.Graph.Axis.Y({graph: LP_co2});
+			LP_co2.render();
+			LP_co2_y.render();
+
+			
+		}, 5000 * ind);
+	})(index);
+}
+
+// Clock, showing the duration of driving on the first page
 var clock = $('#FP_dur').FlipClock({
     clockFace: 'DailyCounter',
     showSeconds: false
 });
-
-var SP_speed = new Rickshaw.Graph( {
-	element: document.getElementById("SP_speed"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var SP_speed_y = new Rickshaw.Graph.Axis.Y({graph: SP_speed})
-
-var SP_cons = new Rickshaw.Graph( {
-	element: document.getElementById("SP_cons"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var SP_cons_y = new Rickshaw.Graph.Axis.Y({graph: SP_cons})
-
-var SP_co2 = new Rickshaw.Graph( {
-	element: document.getElementById("SP_co2"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var SP_co2_y = new Rickshaw.Graph.Axis.Y({graph: SP_co2})
-
-var TP_speed = new Rickshaw.Graph( {
-	element: document.getElementById("TP_speed"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var TP_speed_y = new Rickshaw.Graph.Axis.Y({graph: TP_speed})
-
-var TP_cons = new Rickshaw.Graph( {
-	element: document.getElementById("TP_cons"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var TP_cons_y = new Rickshaw.Graph.Axis.Y({graph: TP_cons})
-
-var TP_co2 = new Rickshaw.Graph( {
-	element: document.getElementById("TP_co2"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }, { x: 1, y: 49 }, { x: 2, y: 38 }, { x: 3, y: 30 }, { x: 4, y: 32 } ],
-			color: '#4682b4'
-		}, {
-			data: [ { x: 0, y: 20 }, { x: 1, y: 24 }, { x: 2, y: 19 }, { x: 3, y: 15 }, { x: 4, y: 16 } ],
-			color: '#9cc1e0'
-
-	} ]
-} );
-var TP_co2_y = new Rickshaw.Graph.Axis.Y({graph: TP_co2})
-
-console.log(enviro.stats)
-// average of all users' speed
-var LP_speed = new Rickshaw.Graph( {
-	element: document.getElementById("LP_speed"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	unstack: true,
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }],
-			color: '#4682b4',
-			name: 'current'
-		}, {
-			data: [ { x: 0, y: enviro.stats.statistics[4].avg}],
-			color: 'green',
-			name: 'average'
-
-	}
-	]
-} );
-var LP_speed_y = new Rickshaw.Graph.Axis.Y({graph: LP_speed})
-
-var LP_cons = new Rickshaw.Graph( {
-	element: document.getElementById("LP_cons"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	unstack: true,
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }],
-			color: '#4682b4',
-			name: 'current'
-		}, {
-			data: [ { x: 0, y: enviro.stats.statistics[10].avg} ],
-			color: 'green',
-			name: 'average'
-
-	} ]
-} );
-var LP_cons_y = new Rickshaw.Graph.Axis.Y({graph: LP_cons})
-
-var LP_co2 = new Rickshaw.Graph( {
-	element: document.getElementById("LP_co2"),
-	width: 450,
-	height: 150,
-	renderer: 'bar',
-	unstack: true,
-	series: [ 
-		{
-			data: [ { x: 0, y: 40 }],
-			color: '#4682b4',
-			name: 'current'
-		}, {
-			data: [ { x: 0, y: enviro.stats.statistics[7].avg} ],
-			color: 'green',
-			name: 'average'
-
-	} ]
-} );
-var LP_co2_y = new Rickshaw.Graph.Axis.Y({graph: LP_co2})
-
-function makeGraphs() {
-	SP_speed_y.render();
-	SP_speed.render();
-	SP_cons_y.render();
-	SP_cons.render();
-	SP_co2_y.render();
-	SP_co2.render();
-	TP_speed_y.render();
-	TP_speed.render();
-	TP_cons_y.render();
-	TP_cons.render();
-	TP_co2_y.render();
-	TP_co2.render();
-	LP_speed_y.render();
-	LP_speed.render();
-	LP_cons_y.render();
-	LP_cons.render();
-	LP_co2_y.render();
-	LP_co2.render();
-}
-makeGraphs();
-//TODO: Die Current Daten immer in den Graph pushen, und mit makeGraphs aktualisieren.
