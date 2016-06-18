@@ -1,50 +1,52 @@
 'use strict';
 var synth = window.speechSynthesis;
 
-var pitchValue = 1; // pitch (Tonhoehe) of sound output
-var rateValue = 1; // speed of sound output
+var pitchValue = 1; // pitch (Tonhoehe) of audio output
+var rateValue = 1; // speed of audio output
+var language = "English"; // language for audio output
 
 // for testing
 // todo: delete this
 var inputForm = document.querySelector('form');
 inputForm.onsubmit = function(event) {
     event.preventDefault();
-    audioOutput(1, "co2", true);
+    audioOutput(1);
 };
 
 /**
- * Create and play a audio output depending on the passed params
- * @param value
- * @param unit
- * @param betterThanAverage
+ * Create and play a audio output depending on the current slide that is shown on the HUD
+ * @param slide
  */
-function audioOutput(value, unit, betterThanAverage){
+function audioOutput(slide){
     var voices = synth.getVoices();
-    var outputSentence = "";
-    if(betterThanAverage){
-        outputSentence = "You are driving better than the average.";
-    } else {
-        outputSentence = "Your driving style could be better.";
+    var outputSentence = ""; // string that will be played
+
+    switch(slide) {
+        case 1:
+            var speed = Math.floor(liveData[curInd].properties.phenomenons.Speed.value * 100)/100 + " kilometers per hour";
+            var consumption = Math.floor(liveData[curInd].properties.phenomenons.Consumption.value * 100) / 100 + " liters per hour";
+            var co2 = Math.floor(liveData[curInd].properties.phenomenons.CO2.value * 100) / 100 + " kilogram per hour";
+            outputSentence = "Your current speed is" + speed + ". Your Comsumption is" + consumption + ". Your carbon emission is" + co2;
+            break;
+        case 2:
+            // todo: audio output for second slide
+            break;
+        case 3:
+            // todo: audio output for third slide
+            break;
+        case 4:
+            // todo: audio output for fourth slide
+            break;
+        case 5:
+            // no audio output / HUD off
+            break;
     }
 
+    // play audio output
     var utterThis = new SpeechSynthesisUtterance(outputSentence);
-    for(var i = 0; i < voices.length ; i++) {
-        if(voices[i].name === "English") {
-            // todo: auf englisch ändern
-            console.log(voices[i].name);
-            console.log(voices[i]);
-            utterThis.voice = voices[i];
-        }
-    }
+    utterThis.voice = "English";
     utterThis.pitch = pitchValue;
     utterThis.rate = rateValue;
     synth.speak(utterThis);
-
-    /*
-    utterThis.onpause = function(event) {
-        var char = event.utterance.text.charAt(event.charIndex);
-        console.log('Speech paused at character ' + event.charIndex + ' of "' +
-            event.utterance.text + '", which is "' + char + '".');
-    };*/
 
 }

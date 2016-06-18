@@ -7,12 +7,13 @@ var FP_speed = document.getElementById("FP_speed");
 var FP_CO2 = document.getElementById("FP_co2");
 var FP_cons = document.getElementById("FP_cons");
 var SP_speed, SP_speed_y, SP_cons, SP_cons_y, SP_co2, SP_co2_y, TP_speed, TP_speed_y, TP_cons, TP_cons_y, TP_co2, TP_co2_y, LP_speed, LP_speed_y, LP_cons, LP_cons_y, LP_co2, LP_co2_y;
+var curInd;
 
 //update the information in the HUD every 5 sec
 for(var index in enviro.currentTrack.features){
 	(function(ind){
 		setTimeout(function(){
-			
+			curInd = ind;
 			liveData.push(enviro.currentTrack.features[ind]);
 			calculatedData = calcLiveAverage(liveData);
 			//##########################################################
