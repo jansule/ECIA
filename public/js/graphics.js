@@ -19,9 +19,18 @@ for(var index in enviro.currentTrack.features){
 			//##########################################################
 			// Put here code for calculating live stats and display ####
 			//##########################################################
+
+			/**
+			 * First page
+ 			 */
 			FP_speed.innerHTML = Math.floor(liveData[ind].properties.phenomenons.Speed.value * 100) / 100 + " km/h";
-			FP_cons.innerHTML = Math.floor(liveData[ind].properties.phenomenons.Consumption.value * 100) / 100 + " l/h"
+			FP_cons.innerHTML = Math.floor(liveData[ind].properties.phenomenons.Consumption.value * 100) / 100 + " l/h";
 			FP_CO2.innerHTML = Math.floor(liveData[ind].properties.phenomenons.CO2.value * 100) / 100 + " kg/h";
+
+			
+			/**
+			 * Second page
+             */
 			document.getElementById('SP_speed').innerHTML = "";
 			SP_speed = new Rickshaw.Graph( {
 				element: document.getElementById("SP_speed"),
@@ -89,6 +98,11 @@ for(var index in enviro.currentTrack.features){
 			SP_co2_y = new Rickshaw.Graph.Axis.Y({graph: SP_co2})
 			SP_co2_y.render();
 			SP_co2.render();
+
+			
+			/**
+			 * Third page
+             */
 			document.getElementById('TP_speed').innerHTML = "";
 			TP_speed = new Rickshaw.Graph( {
 				element: document.getElementById("TP_speed"),
@@ -153,7 +167,11 @@ for(var index in enviro.currentTrack.features){
 			TP_co2_y = new Rickshaw.Graph.Axis.Y({graph: TP_co2})
 			TP_co2.render();
 			TP_co2_y.render();
-			
+
+
+			/**
+			 * Last page
+             */
 			// average of all users' speed
 			document.getElementById('LP_speed').innerHTML = "";
 			LP_speed = new Rickshaw.Graph( {
