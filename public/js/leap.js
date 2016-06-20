@@ -64,13 +64,7 @@ $(document).ready(function() {
         enablesGestures: true
     }, function frame(frame) {
         frame.hands.forEach(function(hand, index) {
-            /*if(hand.direction[0] > 0) {
-			 element.innerHTML = "Swipe to the right";
-			}
-			if(hand.direction[0] < 0) {
-			   element.innerHTML = "Swipe to the left";
-			}
-			})*/
+           
             dir.innerHTML = hand.direction;
         })
     })

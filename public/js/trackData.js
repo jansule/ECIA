@@ -27,25 +27,6 @@ function calcLiveAverage(object){
 	return {
 		avgSpeed: avgSpeed,
 		avgConsumption: avgCons,
-		avgCo2: svgCo2
+		avgCo2: avgCo2
 	};
 }
-
-
-/*
-var liveData = [];
-var calculatedData = {};
-for(index in enviro.currentTrack.features){
-	(function(ind){
-		setTimeout(function(){
-			
-			liveData.push(enviro.currentTrack.features[ind]);
-			calculatedData = calcLiveAverage(liveData);
-			//##########################################################
-			// Put here code for calculating live stats and display ####
-			//##########################################################
-			
-		}, 5000 * ind);
-	})(index);
-}
-*/
