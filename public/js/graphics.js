@@ -36,22 +36,23 @@ for(var index in enviro.currentTrack.features){
 				element: document.getElementById("SP_speed"),
 				width: 450,
 				height: 150,
-				renderer: 'bar',
-				unstack: true,
+				renderer: 'multi',
 				series: [ 
 					{
 						data: [ { x: 0, y: liveData[ind].properties.phenomenons.Speed.value} ],
 						color: '#0072ff',
-						name: 'current'
+						name: 'current',
+						renderer: 'bar'
 					}, {
-						data: [ { x: 0, y: enviro.ownTracksStats.statistics[0].avg} ],
-						color: '#708090',
-						name: 'average'
+						data: [ { x: 0, y: enviro.ownTracksStats.statistics[0].avg}, {x: 1, y:enviro.ownTracksStats.statistics[0].avg} ],
+						color: 'red',
+						name: 'average',
+						renderer: 'line'
 
 				} ]
 			} );
-			SP_speed_y = new Rickshaw.Graph.Axis.Y({graph: SP_speed})
-			SP_speed_y.render();
+			//SP_speed_y = new Rickshaw.Graph.Axis.Y({graph: SP_speed})
+			//SP_speed_y.render();
 			SP_speed.render();
 			
 			document.getElementById('SP_cons').innerHTML = "";

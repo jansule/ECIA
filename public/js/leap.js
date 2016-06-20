@@ -2,7 +2,7 @@
 
 var element = document.getElementById('text');
 var dir = document.getElementById("dir");
-element.style.color = "red";
+//element.style.color = "red";
 var waitMode = false;
 var oldFrame = false;
 
@@ -14,7 +14,7 @@ $(document).ready(function() {
         if (!waitMode && frame.valid && frame.hands.length > 0) {
             waitMode = true;
             var numberOfFingers = getExtendedFingers(frame.hands[0]);
-            element.innerHTML = "You've shown " + numberOfFingers + " fingers.";
+            //element.innerHTML = "You've shown " + numberOfFingers + " fingers.";
             console.log("fingers: " + numberOfFingers);
 
             var destination = numberOfFingers - 1;
@@ -63,7 +63,7 @@ $(document).ready(function() {
     }, function frame(frame) {
         frame.hands.forEach(function(hand, index) {
            
-            dir.innerHTML = hand.direction;
+            //dir.innerHTML = hand.direction;
         })
     })
 });

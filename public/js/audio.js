@@ -8,10 +8,10 @@ var language = "English"; // language for audio output
 // for testing
 // todo: delete this
 var inputForm = document.querySelector('form');
-inputForm.onsubmit = function(event) {
+/*inputForm.onsubmit = function(event) {
     event.preventDefault();
     audioOutput(4);
-};
+};*/
 
 /**
  * Create and play a audio output depending on the current slide that is shown on the HUD
