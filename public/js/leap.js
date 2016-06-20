@@ -18,15 +18,11 @@ $(document).ready(function() {
             console.log("fingers: " + numberOfFingers);
 
             var destination = numberOfFingers - 1;
-            if (destination > -1 && destination < 4) {
+            if (destination > -1 && destination < 5) {
                 $.fn.fullpage.silentMoveTo(0, destination);
             }
 
-            //if 5 fingers are shown the application should be turned on/off
-            if (destination == 4) {
-
-                //TODO: turn visibility of iframe on/off
-            }
+           
 
             setTimeout(function() {
                 waitMode = false;
@@ -41,7 +37,9 @@ $(document).ready(function() {
         if (frame.valid && frame.gestures[0] && !oldFrame.gestures[0]) {
             frame.gestures.forEach(function(gesture) {
                 if (gesture.type == "circle") {
-                    //TODO: turn on audio control
+                    var currentIndex = $('.slide.active').index();
+                    console.log(currentIndex);
+                    audioOutput(currentIndex);
                     console.log("Circle Gesture");
                 }
             });
