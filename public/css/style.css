@@ -1,6 +1,5 @@
 #section0{
 	background-color: transparent;
-	margin: 2%;
 }
 
 .content{
@@ -10,28 +9,25 @@
 label {
 	font-size: 30px;
 	font-family: sans-serif;
-	/*margin-left: 10%;*/
 }
 
 h1 {
 	font-family: sans-serif;
 	margin-left: 40%;
 	width: 450px;
-	height: 150px;
+	height: 100px;
 	font-size: 40px;
 }
 
 p {
 	font-family: sans-serif;
 	font-size: 40px;
-	/*margin-left: 30%;*/
 }
 
 .slide{
 
 	font-family: 'Open Sans';
-	text-align:center;
-	width: 50%;
+	text-align:left;
  	color: #fcfcfc;
 	color: #fcfcfc; */
 }
