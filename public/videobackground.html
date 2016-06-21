@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+<body>
+	<video autoplay loop id="bgvid">
+		<source src="lib/KappenbergerDamm_Morning.MP4" type="video/mp4">
+	</video>
+
+
+
+	<iframe id="hudframe" src="main.html" allowtransparency="true" height="600px" width="600px" style="-webkit-transform:scale(0.5);-moz-transform-scale(0.5);"></iframe>
+</body>
+
+<style>
+	body {
+		cursor: none;
+	}
+
+	video#bgvid {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		min-width: 100%;
+		min-height: 100%;
+		width: auto;
+		height: auto;
+		z-index: -100;
+		-ms-transform: translateX(-50%) translateY(-50%);
+		-moz-transform: translateX(-50%) translateY(-50%);
+		-webkit-transform: translateX(-50%) translateY(-50%);
+		transform: translateX(-50%) translateY(-50%);
+	}
+
+	iframe {
+		border: 0;
+		background-color: transparent;
+		float: right;
+		padding-top: 450px;
+	}
+</style>
+
+</html>
