@@ -13,6 +13,7 @@
 	<script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
 	<script type="text/javascript" src="lib/rickshaw/rickshaw.min.js"></script>
 	<script type="text/javascript" src="lib/flipclock/flipclock.min.js"></script>
+	<script type="text/javascript" src="lib/flot/jquery.flot.min.js"></script>
 	<script src="lib/leapGestures/leap-gestures.js"></script>
 	
 	<!--TODO: seperate into extra file if project gets bigger -->
@@ -40,35 +41,38 @@
 			<div class="slide" id="slide2">
 				<div class="content">
 					<!-- demo text -->
-					<p>Current data vs. your average</p>
-					<label for="SP_speed" >Speed: </label>
-					<div id="SP_speed" class="rickshaw_graph" style="margin-left: 40%;"></div>
-					<label for="SP_cons" >Consumption: </label>
-					<div id="SP_cons" class="rickshaw_graph" style="margin-left: 40%;"></div>
-					<label for="SP_co2" >CO2: </label>
-					<div id="SP_co2" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<p>Current vs. Average</p>
+					<table style="width: 100%; padding-top: 10%">
+						<tr>
+							<td style="padding-left: 20%"><div id="SP_speed" style="margin-left: 40%; width: 50px; height: 200px"></div></td>
+							<td><div id="SP_cons" style="margin-left: 40%; width: 50px; height: 200px"></div></td>
+							<td style="padding-right: 27%"><div id="SP_co2" style="margin-left: 40%; width: 50px; height: 200px"></div></td>
+						</tr>
+					</table>
+					
+					
 				</div>
 			</div>
 			<div class="slide" id="slide3">
 				<div class="content">
 					<p>Your data vs. data of the same cartype</p>
 					<label for="TP_speed" >Speed: </label>
-					<div id="TP_speed" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="TP_speed" style="margin-left: 40%;"></div>
 					<label for="TP_cons" >Consumption: </label>
-					<div id="TP_cons" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="TP_cons" style="margin-left: 40%;"></div>
 					<label for="TP_co2" >CO2: </label>
-					<div id="TP_co2" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="TP_co2" style="margin-left: 40%;"></div>
 				</div>
 			</div>	
 			<div class="slide" id="slide4">
 				<div class="content">
 					<p>Your current data vs. average users performance</p>
 					<label for="LP_speed" >Speed: </label>
-					<div id="LP_speed" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="LP_speed" style="margin-left: 40%;"></div>
 					<label for="LP_cons" >Consumption: </label>
-					<div id="LP_cons" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="LP_cons" style="margin-left: 40%;"></div>
 					<label for="LP_co2" >CO2: </label>
-					<div id="LP_co2" class="rickshaw_graph" style="margin-left: 40%;"></div>
+					<div id="LP_co2" style="margin-left: 40%;"></div>
 				</div>
 			</div>
 			<!--Empty screen for simulating the HUD off-->
