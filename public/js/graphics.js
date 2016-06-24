@@ -73,7 +73,7 @@ for(var index in enviro.currentTrack.features){
 		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = sp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var sp_cons_options = {
@@ -117,7 +117,7 @@ for(var index in enviro.currentTrack.features){
 		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = sp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var sp_co2_options = {
@@ -161,7 +161,7 @@ for(var index in enviro.currentTrack.features){
 		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = sp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Second slide
@@ -212,7 +212,7 @@ for(var index in enviro.currentTrack.features){
 		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = tp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var tp_cons_options = {
@@ -256,7 +256,7 @@ for(var index in enviro.currentTrack.features){
 		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = tp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var tp_co2_options = {
@@ -300,7 +300,7 @@ for(var index in enviro.currentTrack.features){
 		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = tp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Third slide
@@ -350,7 +350,7 @@ for(var index in enviro.currentTrack.features){
 		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = lp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var lp_cons_options = {
@@ -394,7 +394,7 @@ for(var index in enviro.currentTrack.features){
 		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = lp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var lp_co2_options = {
@@ -438,7 +438,7 @@ for(var index in enviro.currentTrack.features){
 		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = lp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-10) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Fourth slide
