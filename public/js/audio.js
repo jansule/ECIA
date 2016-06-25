@@ -3,12 +3,11 @@ var synth = window.speechSynthesis;
 
 var pitchValue = 1; // pitch (Tonhoehe) of audio output
 var rateValue = 1; // speed of audio output
-var language = "English"; // language for audio output
 
 // for testing
 // todo: delete this
-var inputForm = document.querySelector('form');
-/*inputForm.onsubmit = function(event) {
+/*var inputForm = document.querySelector('form');
+inputForm.onsubmit = function(event) {
     event.preventDefault();
     audioOutput(4);
 };*/
@@ -18,7 +17,6 @@ var inputForm = document.querySelector('form');
  * @param slide
  */
 function audioOutput(slide){
-    var voices = synth.getVoices();
     var outputSentence = ""; // string that will be played
 
     switch(slide) {
@@ -87,7 +85,16 @@ function audioOutput(slide){
 
     // play audio output
     var utterThis = new SpeechSynthesisUtterance(outputSentence);
-    utterThis.voice = "English";
+
+    var voices = synth.getVoices();
+    var selectedOption = "Google US English";
+    for(var i = 0; i < voices.length ; i++) {
+        if(voices[i].name === selectedOption) {
+            utterThis.voice = voices[i];
+            console.log(voices[i]);
+        }
+    }
+
     utterThis.pitch = pitchValue;
     utterThis.rate = rateValue;
     synth.speak(utterThis);
