@@ -21,7 +21,7 @@ function hand(e) {
 var config = {
     useControllerEvents: true,
     confidenceThreshold: 0.15,
-    handDuration: 1500
+    handDuration: 1000
 }
 var leapGestures = new LeapGestures(config);
 var c = leapGestures.getLeapController();

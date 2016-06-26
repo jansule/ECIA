@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-	<link rel="stylesheet" type="text/css" href="css/style.css" />	
+	<link rel="stylesheet" type="text/css" href="css/style.css" />
 	<link rel="stylesheet" type="text/css" href="lib/fullpage/jquery.fullpage.css" />
 	<link rel="stylesheet" type="text/css" href="lib/rickshaw/rickshaw.min.css"/>
 	<link rel="stylesheet" type="text/css" href="lib/flipclock/flipclock.css"/>
-	
+
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script type="text/javascript" src="lib/fullpage/jquery.fullpage.js"></script>
 	<script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
@@ -15,12 +15,13 @@
 	<script type="text/javascript" src="lib/flipclock/flipclock.min.js"></script>
 	<script type="text/javascript" src="lib/flot/jquery.flot.min.js"></script>
 	<script src="lib/leapGestures/leap-gestures.js"></script>
-	
+
 	<!--TODO: seperate into extra file if project gets bigger -->
-	<script type="text/javascript"> $(document).ready(function() {
-			$('#fullpage').fullpage();	
-			});
-	</script>	
+	<script type="text/javascript">
+		$(document).ready(function() {
+				$('#fullpage').fullpage({controlArrows: false});
+		});
+	</script>
 </head>
 <body>
 	<div id="fullpage">
@@ -76,6 +77,7 @@
 					</table>
 					
 					
+
 				</div>
 			</div>
 			<div class="slide" id="slide3">
@@ -92,8 +94,9 @@
 					
 					
 					
+
 				</div>
-			</div>	
+			</div>
 			<div class="slide" id="slide4">
 				<div class="content">
 					<p>Current vs. Global Avg</p>
@@ -107,16 +110,16 @@
 					</table>
 					
 					
-					
+				
 				</div>
 			</div>
 			<!--Empty screen for simulating the HUD off-->
 			<div class="slide" id="slide5">
 				<div class="content">
 				</div>
-			</div>	
+			</div>
 		<!-- end of section -->
-		</div>		
+		</div>
 	</div>
 	<script src="js/leap.js"></script>
 
