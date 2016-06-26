@@ -1,13 +1,15 @@
 'use strict';
-
+var speechActive = false;
 function hand(e) {
     if (e.fingers == 0) {
         console.log("fist detected");
 
         //active audioOutput on fist detected
         if (speechActive == false){
+            speechActive = true;
             var currentIndex = $('.slide.active').index();
             audioOutput(currentIndex+1);
+            window.setTimeout("speechActive = false", 8000, true);
         }
     } else {
         console.log(e.fingers + "fingers detected");
