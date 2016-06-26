@@ -1,6 +1,6 @@
 'use strict';
 var synth = window.speechSynthesis;
-
+var speechActive = false;
 var pitchValue = 1; // pitch (Tonhoehe) of audio output
 var rateValue = 1; // speed of audio output
 
@@ -85,7 +85,6 @@ function audioOutput(slide){
 
     // play audio output
     var utterThis = new SpeechSynthesisUtterance(outputSentence);
-
     var voices = synth.getVoices();
     var selectedOption = "Google US English";
     for(var i = 0; i < voices.length ; i++) {
@@ -94,7 +93,13 @@ function audioOutput(slide){
             console.log(voices[i]);
         }
     }
-
+    utterThis.onstart = function(event) {
+        speechActive = true;
+    };
+    utterThis.onend = function(event) {
+        speechActive = false;
+    };
+   
     utterThis.pitch = pitchValue;
     utterThis.rate = rateValue;
     synth.speak(utterThis);
