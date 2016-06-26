@@ -14,6 +14,15 @@ function hand(e) {
         var destination = e.fingers - 1;
         if (destination > -1 && destination < 5) {
             $.fn.fullpage.silentMoveTo(0, destination);
+            if(destination == 4){
+                $("#section0").addClass("deactivated");
+            }
+            else{
+                if ($("#section0").hasClass("deactivated")){
+                    $("#section0").removeClass("deactivated");
+                }
+
+            }
         }
     }
 }

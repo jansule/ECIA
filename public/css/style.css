@@ -1,5 +1,8 @@
 #section0{
-	background-color: transparent;
+	background-color: hsla(0,0%,0%, 0.2);
+}
+.deactivated{
+	background-color: transparent !important;
 }
 
 .content{
@@ -16,6 +19,8 @@ h1 {
 	width: 450px;
 	height: 100px;
 	font-size: 40px;
+	color: white;
+	padding-bottom: 10%;
 }
 
 h2 {
@@ -25,12 +30,14 @@ h2 {
 	font-size: 40px;
 /*from here */
 	font-weight: normal;
+	color:white;
 }
 
 p {
 	font-family: sans-serif;
 	font-size: 38px;
 	text-align: center;
+	color: white;
 }
 /*until here*/
 

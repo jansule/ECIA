@@ -33,6 +33,9 @@ for(var index in enviro.currentTrack.features){
 		####Second slide##
 		##################*/
 		var sp_speed_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -58,7 +61,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], sp_speed_options);
 
@@ -66,17 +69,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgSpeed.toFixed(1) + "</b></div>");
+		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgSpeed.toFixed(1) + "</b></div>");
 
 
 		o = sp_speed.pointOffset({ x: -0.1, y: -2});
-		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
+		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = sp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#SP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif;'>Speed</div>");			
 	
 
 		var sp_cons_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -102,7 +108,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], sp_cons_options);
 
@@ -110,17 +116,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgConsumption.toFixed(1) + "</b></div>");
+		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgConsumption.toFixed(1) + "</b></div>");
 
 
 		co = sp_cons.pointOffset({ x: -0.1, y: -0.2});
-		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
+		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = sp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#SP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var sp_co2_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -146,7 +155,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], sp_co2_options);
 
@@ -154,14 +163,14 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgCo2.toFixed(1) + "</b></div>");
+		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + calcLiveAverage(liveData.slice(0, ind + 1)).avgCo2.toFixed(1) + "</b></div>");
 
 
 		co2 = sp_co2.pointOffset({ x: -0.1, y: -0.5});
-		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
+		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = sp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#SP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Second slide
@@ -172,6 +181,9 @@ for(var index in enviro.currentTrack.features){
 		##################*/
 
 		var tp_speed_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -197,7 +209,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], tp_speed_options);
 
@@ -205,17 +217,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.sameCarStats.statistics[0].avg.toFixed(1) + "</b></div>");
+		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.sameCarStats.statistics[0].avg.toFixed(1) + "</b></div>");
 
 
 		o = tp_speed.pointOffset({ x: -0.1, y: -2});
-		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
+		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = tp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#TP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var tp_cons_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -241,7 +256,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], tp_cons_options);
 
@@ -249,17 +264,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.sameCarStats.statistics[2].avg.toFixed(1) + "</b></div>");
+		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.sameCarStats.statistics[2].avg.toFixed(1) + "</b></div>");
 
 
 		co = tp_cons.pointOffset({ x: -0.1, y: -0.2});
-		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
+		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = tp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#TP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var tp_co2_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -285,7 +303,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], tp_co2_options);
 
@@ -293,14 +311,14 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.sameCarStats.statistics[1].avg.toFixed(1) + "</b></div>");
+		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.sameCarStats.statistics[1].avg.toFixed(1) + "</b></div>");
 
 
 		co2 = tp_co2.pointOffset({ x: -0.1, y: -0.5});
-		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
+		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = tp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#TP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Third slide
@@ -310,6 +328,9 @@ for(var index in enviro.currentTrack.features){
 		##################*/
 
 		var lp_speed_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -335,7 +356,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], lp_speed_options);
 
@@ -343,17 +364,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.stats.statistics[0].avg.toFixed(1) + "</b></div>");
+		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.stats.statistics[0].avg.toFixed(1) + "</b></div>");
 
 
 		o = lp_speed.pointOffset({ x: -0.1, y: -2});
-		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
+		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
 		o = lp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var lp_cons_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -379,7 +403,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], lp_cons_options);
 
@@ -387,17 +411,20 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.stats.statistics[2].avg.toFixed(1) + "</b></div>");
+		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.stats.statistics[2].avg.toFixed(1) + "</b></div>");
 
 
 		co = lp_cons.pointOffset({ x: -0.1, y: -0.2});
-		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
+		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 2) + "px;top:" + (co.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Consumption.value.toFixed(1)+" l/h</b></div>");
 
 		co = lp_cons.pointOffset({ x: -2.5, y: enviro.ownTracksStats.statistics[0].max + 2.5});
-		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
+		$('#LP_cons').append("<div style='position:absolute;left:" + (co.left + 160) + "px;top:" + (co.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Consumption</div>");
 
 
 		var lp_co2_options = {
+			grid: {
+				color: 'white'
+			},
 			xaxis: {
 				max: 1,
 				ticks: 0
@@ -423,7 +450,7 @@ for(var index in enviro.currentTrack.features){
 				show: true,
 				lineWidth: 3
 			},
-			color: '#FF0000',
+			color: '#FFFFFF',
 			shadowSize: 4
 		}], tp_co2_options);
 
@@ -431,14 +458,14 @@ for(var index in enviro.currentTrack.features){
 
 		// Append it to the placeholder that Flot already uses for positioning
 
-		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FF0000; font-family: sans-serif'><b>avg " + enviro.stats.statistics[1].avg.toFixed(1) + "</b></div>");
+		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top-5) + "px;color:#FFFFFF; font-family: sans-serif; font-size: 36px'><b>avg " + enviro.stats.statistics[1].avg.toFixed(1) + "</b></div>");
 
 
 		co2 = lp_co2.pointOffset({ x: -0.1, y: -0.5});
-		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: steelblue; font-family: sans-serif'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
+		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 2) + "px;top:" + (co2.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.CO2.value.toFixed(1)+" kg/h</b></div>");
 
 		co2 = lp_co2.pointOffset({ x: -0.6, y: enviro.ownTracksStats.statistics[1].max + 5.5});
-		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: black; font-size: xx-large; font-family: sans-serif'>CO2</div>");
+		$('#LP_co2').append("<div style='position:absolute;left:" + (co2.left + 60) + "px;top:" + (co2.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>CO2</div>");
 
 		/*###########
 		End Fourth slide
@@ -447,9 +474,3 @@ for(var index in enviro.currentTrack.features){
 		}, 5000 * ind);
 	})(index);
 }
-
-// Clock, showing the duration of driving on the first page
-var clock = $('#FP_dur').FlipClock({
-    clockFace: 'DailyCounter',
-    showSeconds: false
-});
