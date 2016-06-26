@@ -5,8 +5,10 @@ function hand(e) {
         console.log("fist detected");
 
         //active audioOutput on fist detected
-        var currentIndex = $('.slide.active').index();
-        audioOutput(currentIndex+1);
+        if (speechActive == false){
+            var currentIndex = $('.slide.active').index();
+            audioOutput(currentIndex+1);
+        }
     } else {
         console.log(e.fingers + "fingers detected");
 
