@@ -336,7 +336,7 @@ for(var index in enviro.currentTrack.features){
 				ticks: 0
 			},
 			yaxis: {
-				max: enviro.ownTracksStats.statistics[2].max,
+				max: enviro.stats.statistics[0].max,
 				ticks: 0
 			}
 		};
@@ -370,8 +370,8 @@ for(var index in enviro.currentTrack.features){
 		o = lp_speed.pointOffset({ x: -0.1, y: -2});
 		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 2) + "px;top:" + (o.top) + "px;color: #90B4D2; font-family: sans-serif; font-size: 36px'><b>"+ liveData[ind].properties.phenomenons.Speed.value.toFixed(1)+" km/h</b></div>");
 
-		o = lp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[2].max + 20});
-		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + 40) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
+		o = lp_speed.pointOffset({ x: -1, y: enviro.ownTracksStats.statistics[0].max + 20});
+		$('#LP_speed').append("<div style='position:absolute;left:" + (o.left + 80) + "px;top:" + (o.top + -403) + "px;color: white; font-size: xx-large; font-family: sans-serif'>Speed</div>");			
 	
 
 		var lp_cons_options = {
